@@ -1,0 +1,21 @@
+c:\users\alexander\documents\visual studio 2013\Projects\BordeauxRCClient\BordeauxRCClient\bin\Debug\BordeauxRCClient.exe.config
+c:\users\alexander\documents\visual studio 2013\Projects\BordeauxRCClient\BordeauxRCClient\bin\Debug\BordeauxRCClient.exe
+c:\users\alexander\documents\visual studio 2013\Projects\BordeauxRCClient\BordeauxRCClient\bin\Debug\BordeauxRCClient.pdb
+c:\users\alexander\documents\visual studio 2013\Projects\BordeauxRCClient\BordeauxRCClient\obj\Debug\BordeauxRCClient.csprojResolveAssemblyReference.cache
+c:\users\alexander\documents\visual studio 2013\Projects\BordeauxRCClient\BordeauxRCClient\obj\Debug\BordeauxRCClient.Properties.Resources.resources
+c:\users\alexander\documents\visual studio 2013\Projects\BordeauxRCClient\BordeauxRCClient\obj\Debug\BordeauxRCClient.csproj.GenerateResource.Cache
+c:\users\alexander\documents\visual studio 2013\Projects\BordeauxRCClient\BordeauxRCClient\obj\Debug\BordeauxRCClient.exe
+c:\users\alexander\documents\visual studio 2013\Projects\BordeauxRCClient\BordeauxRCClient\obj\Debug\BordeauxRCClient.pdb
+c:\users\alexander\documents\visual studio 2013\Projects\BordeauxRCClient\BordeauxRCClient\obj\Debug\BordeauxRCClient.Form1.resources
+C:\Users\Alexander\Documents\Visual Studio 2015\Projects\BordeauxRCClient\bin\Debug\BordeauxRCClient.exe.config
+C:\Users\Alexander\Documents\Visual Studio 2015\Projects\BordeauxRCClient\bin\Debug\BordeauxRCClient.exe
+C:\Users\Alexander\Documents\Visual Studio 2015\Projects\BordeauxRCClient\bin\Debug\BordeauxRCClient.pdb
+C:\Users\Alexander\Documents\Visual Studio 2015\Projects\BordeauxRCClient\obj\Debug\BordeauxRCClient.csprojResolveAssemblyReference.cache
+C:\Users\Alexander\Documents\Visual Studio 2015\Projects\BordeauxRCClient\obj\Debug\BordeauxRCClient.Form1.resources
+C:\Users\Alexander\Documents\Visual Studio 2015\Projects\BordeauxRCClient\obj\Debug\BordeauxRCClient.Properties.Resources.resources
+C:\Users\Alexander\Documents\Visual Studio 2015\Projects\BordeauxRCClient\obj\Debug\BordeauxRCClient.csproj.GenerateResource.Cache
+C:\Users\Alexander\Documents\Visual Studio 2015\Projects\BordeauxRCClient\obj\Debug\BordeauxRCClient.exe
+C:\Users\Alexander\Documents\Visual Studio 2015\Projects\BordeauxRCClient\obj\Debug\BordeauxRCClient.pdb
+C:\Users\Dylan\Git\BordeauxServer\Client\bin\Debug\BordeauxRCClient.exe.config
+C:\Users\Dylan\Git\BordeauxServer\Client\obj\Debug\BordeauxRCClient.exe
+C:\Users\Dylan\Git\BordeauxServer\Client\obj\Debug\BordeauxRCClient.pdb

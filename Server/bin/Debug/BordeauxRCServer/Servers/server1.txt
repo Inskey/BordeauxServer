@@ -1,0 +1,4 @@
+MineCorp
+@a7c6bf7982f92ed197af475f194d3b750d0b26c0d555f3aad6e00849320062ce4b0628038360725174962662e7bae8e484adf2ad20b20d2d3ca67ee3f7b9f856
+C:\Users\Alexander\Desktop\testserver\server.jar
+-Xmx4G -Xms4G

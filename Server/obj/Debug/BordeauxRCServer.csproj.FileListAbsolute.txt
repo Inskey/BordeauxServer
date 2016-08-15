@@ -1,0 +1,12 @@
+c:\users\alexander\documents\visual studio 2013\Projects\BordeauxRCServer\BordeauxRCServer\bin\Debug\BordeauxRCServer.exe.config
+c:\users\alexander\documents\visual studio 2013\Projects\BordeauxRCServer\BordeauxRCServer\bin\Debug\BordeauxRCServer.exe
+c:\users\alexander\documents\visual studio 2013\Projects\BordeauxRCServer\BordeauxRCServer\bin\Debug\BordeauxRCServer.pdb
+c:\users\alexander\documents\visual studio 2013\Projects\BordeauxRCServer\BordeauxRCServer\obj\Debug\BordeauxRCServer.csprojResolveAssemblyReference.cache
+c:\users\alexander\documents\visual studio 2013\Projects\BordeauxRCServer\BordeauxRCServer\obj\Debug\BordeauxRCServer.exe
+c:\users\alexander\documents\visual studio 2013\Projects\BordeauxRCServer\BordeauxRCServer\obj\Debug\BordeauxRCServer.pdb
+C:\Users\Alexander\Documents\Visual Studio 2015\Projects\BordeauxServer\bin\Debug\BordeauxRCServer.exe.config
+C:\Users\Alexander\Documents\Visual Studio 2015\Projects\BordeauxServer\bin\Debug\BordeauxRCServer.exe
+C:\Users\Alexander\Documents\Visual Studio 2015\Projects\BordeauxServer\bin\Debug\BordeauxRCServer.pdb
+C:\Users\Alexander\Documents\Visual Studio 2015\Projects\BordeauxServer\obj\Debug\BordeauxRCServer.csprojResolveAssemblyReference.cache
+C:\Users\Alexander\Documents\Visual Studio 2015\Projects\BordeauxServer\obj\Debug\BordeauxRCServer.exe
+C:\Users\Alexander\Documents\Visual Studio 2015\Projects\BordeauxServer\obj\Debug\BordeauxRCServer.pdb
