@@ -10,6 +10,7 @@ namespace BordeauxRCClient
         public bool running;
 
         private Core.Connection con;
+        private LoginForm loginForm;
 
         public Form1()
         {
@@ -18,6 +19,8 @@ namespace BordeauxRCClient
             con = new Core.Connection(this);
             new Thread(new ThreadStart(DisplayLoop)).Start();
             new Thread(new ThreadStart(CmdLoop)).Start();
+
+            openLoginForm();
         }
 
         public List<string> dispQueue = new List<string>();
@@ -56,21 +59,6 @@ namespace BordeauxRCClient
             {
                 return;
             }
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_Enter(object sender, EventArgs e)
-        {
-            ActiveForm.AcceptButton = button1;
-        }
-
-        private void textBox2_Leave(object sender, EventArgs e)
-        {
-            ActiveForm.AcceptButton = null;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -164,6 +152,18 @@ namespace BordeauxRCClient
             }
         }
 
+        private void openLoginForm()
+        {
+            if (loginForm == null || loginForm.IsDisposed) loginForm = new LoginForm();
+
+            DialogResult res = loginForm.ShowDialog();
+
+            if (res == DialogResult.OK)
+            {
+                cmds.Add(loginForm.getLoginDetails());
+            }
+        }
+
         private List<string> oldCommands = new List<string>();
         private int cmdIndex = -1;
 
@@ -205,12 +205,24 @@ namespace BordeauxRCClient
 
         private void OnFormClose(object sender, FormClosingEventArgs e)
         {
+            if (con.connected) con.Disconnect();
             running = false;
         }
 
         internal void Disconnect()
         {
+            con.Disconnect();
             con = new Core.Connection(this);
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void connectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openLoginForm();
         }
     }
 }

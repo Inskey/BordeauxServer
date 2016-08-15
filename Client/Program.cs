@@ -8,8 +8,7 @@ namespace BordeauxRCClient
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-
-        public static Core.Connection connection;
+        
         public static Form1 mainForm;
 
         static internal string version = "Prerelease";
@@ -21,7 +20,6 @@ namespace BordeauxRCClient
             Application.SetCompatibleTextRenderingDefault(false);
             mainForm = new Form1();
             Application.Run(mainForm);
-            connection = new Core.Connection(mainForm);
         }
     }
 }

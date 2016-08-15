@@ -61,11 +61,20 @@ namespace BordeauxRCClient.Core
             new Thread(new ThreadStart(SendLoop)).Start();
             new Thread(new ThreadStart(Listen)).Start();
             Send(user);
-            while (waitSalt)
+            int i = 0;
+            while (waitSalt && i++ < 50)
             {
                 Thread.Sleep(100);
             }
-            Send(Util.Hash(Util.Hash(pass) + salt));
+            if (i < 50)
+            {
+                Send(Util.Hash(Util.Hash(pass) + salt));
+            }
+            else
+            {
+                form.dispQueue.Add("It broke nigga");
+                form.Disconnect();
+            }
         }
 
         public void Send(string str)
@@ -82,9 +91,9 @@ namespace BordeauxRCClient.Core
         {
             try
             {
-                while (form.running)
+                while (connected)
                 {
-                    if (connected && sendQueue.Count > 0)
+                    if (sendQueue.Count > 0)
                     {
                         sckt.Send(Encoding.UTF8.GetBytes(sendQueue[0].Length.ToString() + "@" + sendQueue[0]));
                         sendQueue.RemoveAt(0);
@@ -114,8 +123,7 @@ namespace BordeauxRCClient.Core
             {
                 form.dispQueue.Add("Encountered socket exception, disconnecting.");
                 form.dispQueue.Add("Detailed error: " + se.Message);
-                Disconnect();
-                connected = false;
+                form.Disconnect();
             }
         }
 
@@ -138,7 +146,7 @@ namespace BordeauxRCClient.Core
                         string[] split = conjMsg.Split(':');
                         if (split.Length < 2)
                         {
-                            Disconnect();
+                            form.Disconnect();
                             return;
                         }
                         salt = split[1];
@@ -158,22 +166,18 @@ namespace BordeauxRCClient.Core
                 if (Encoding.UTF8.GetString(data) == "#")
                 {
                     form.dispQueue.Add("Received disconnection packet from server.");
-                    Disconnect();
-                    conjMsg = "";
-                    lengthNums = "";
-                    return;
+                    form.Disconnect();
                 }
-                if (Encoding.UTF8.GetString(data) == "@")
+                else if (Encoding.UTF8.GetString(data) == "@")
                 {
                     if (! int.TryParse(lengthNums, out msgLength))
                     {
                         form.dispQueue.Add("Server sent bad packet, disconnecting.");
-                        Disconnect();
+                        form.Disconnect();
                     }
                     inString = true;
-                    return;
                 }
-                if (Encoding.UTF8.GetString(data) == "&")
+                else if (Encoding.UTF8.GetString(data) == "&")
                 {
                     //keepalive-ignore
                 }
@@ -195,6 +199,10 @@ namespace BordeauxRCClient.Core
             {
                 return;
             }
+            catch (ObjectDisposedException)
+            {
+                return;
+            }
             Listen();
         }
 
@@ -206,10 +214,6 @@ namespace BordeauxRCClient.Core
             sckt.Close();
             sckt.Dispose();
             form.dispQueue.Add("Disconnected from server.");
-            conjMsg = "";
-            lengthNums = "";
-            waitSalt = true;
-            form.Disconnect();
         }
     }
 }

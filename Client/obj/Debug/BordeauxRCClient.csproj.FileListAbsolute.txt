@@ -19,3 +19,10 @@ C:\Users\Alexander\Documents\Visual Studio 2015\Projects\BordeauxRCClient\obj\De
 C:\Users\Dylan\Git\BordeauxServer\Client\bin\Debug\BordeauxRCClient.exe.config
 C:\Users\Dylan\Git\BordeauxServer\Client\obj\Debug\BordeauxRCClient.exe
 C:\Users\Dylan\Git\BordeauxServer\Client\obj\Debug\BordeauxRCClient.pdb
+C:\Users\Dylan\Git\BordeauxServer\Client\obj\Debug\BordeauxRCClient.csprojResolveAssemblyReference.cache
+C:\Users\Dylan\Git\BordeauxServer\Client\obj\Debug\BordeauxRCClient.Form1.resources
+C:\Users\Dylan\Git\BordeauxServer\Client\obj\Debug\BordeauxRCClient.LoginForm.resources
+C:\Users\Dylan\Git\BordeauxServer\Client\obj\Debug\BordeauxRCClient.Properties.Resources.resources
+C:\Users\Dylan\Git\BordeauxServer\Client\obj\Debug\BordeauxRCClient.csproj.GenerateResource.Cache
+C:\Users\Dylan\Git\BordeauxServer\Client\bin\Debug\BordeauxRCClient.exe
+C:\Users\Dylan\Git\BordeauxServer\Client\bin\Debug\BordeauxRCClient.pdb
