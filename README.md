@@ -27,7 +27,7 @@ Config files for the Bordeaux server are handled as individual text files (`.txt
 You will need to make a separate text file for each Minecraft Server you want Bordeaux to manage, and each text file will need 4 lines:
 
 * First line: Server name - This must be unique for each server, and will function as the login username for this server  
-* Second Line: Server password - This password will be required in order to login to this server, note that the Bordeaux server will hash your password using a random salt the first time it reads your config file, so the password is *not* stored in plaintext
+* Second Line: Server password - This password will be required in order to login to this server, note that the Bordeaux server will hash your password the first time it reads your config file, so the password is *not* stored in plaintext
 * Third Line: Absolute directory to the server jar file - Note that this is the **absolute** path, meaning you will need to specify the drive letter on Windows, or start from the root directory `/` on Linux/OSX  
 * Fourth Line: Additional Java args - Any additional args you would like Bordeaux to start your server with, such as min/max memory allocation. These are specified as you would specify them in a `start.bat` or `start.sh` file
 
