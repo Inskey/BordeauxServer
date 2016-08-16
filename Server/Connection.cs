@@ -109,7 +109,12 @@ namespace BordeauxRCServer
             }
             else
             {
-                if (Encoding.UTF8.GetString(data) == "@")
+                if (Encoding.UTF8.GetString(data) == "#")
+                {
+                    Program.MainDisplay("Client #" + ID.ToString() + " @" + GetIP().ToString() + " sent disconnect packet. Disconnecting.");
+                    ClientDisconnected(this, new Net.ConnectionArgs(this));
+                }
+                else if (Encoding.UTF8.GetString(data) == "@")
                 {
                     if (!int.TryParse(lengthNums, out msgLength))
                     {

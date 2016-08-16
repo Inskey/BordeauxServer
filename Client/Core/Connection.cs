@@ -213,6 +213,7 @@ namespace BordeauxRCClient.Core
 
         public void Disconnect()
         {
+            if (sckt.Connected) sckt.Send(Encoding.UTF8.GetBytes("#"));
             connected = false;
             try
             {
