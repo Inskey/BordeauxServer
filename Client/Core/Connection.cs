@@ -9,7 +9,7 @@ namespace BordeauxRCClient.Core
 {
     class Connection
     {
-        private Form1 form;
+        private MainForm form;
 
         public bool connected = false;
 
@@ -17,7 +17,7 @@ namespace BordeauxRCClient.Core
 
         private List<string> sendQueue = new List<string>();
 
-        public Connection(Form1 form_)
+        public Connection(MainForm form_)
         {
             form = form_;
             data = new byte[1];

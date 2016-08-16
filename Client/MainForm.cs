@@ -5,14 +5,14 @@ using System.Windows.Forms;
 
 namespace BordeauxRCClient
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         public bool running;
 
         private Core.Connection con;
         private LoginForm loginForm;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             running = true;
