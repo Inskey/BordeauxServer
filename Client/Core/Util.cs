@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BordeauxRCClient.Core
 {
-    static class Util
+    internal static class Util
     {
         static internal string Hash(string strPlain)
         {

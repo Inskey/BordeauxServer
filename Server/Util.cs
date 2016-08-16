@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Text;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace BordeauxRCServer
 {
-    static class Util
+    internal static class Util
     {
         internal static bool IsLinux()
         {
-            int p = (int) Environment.OSVersion.Platform;
+            int p = (int)Environment.OSVersion.Platform;
             return (p == 4) || (p == 6) || (p == 128);
         }
 
@@ -18,7 +18,7 @@ namespace BordeauxRCServer
             byte[] HashValue, MessageBytes = UE.GetBytes(strPlain);
             SHA512Managed SHhash = new SHA512Managed();
             string strHex = "";
- 
+
             HashValue = SHhash.ComputeHash(MessageBytes);
             foreach (byte b in HashValue)
             {
@@ -28,6 +28,7 @@ namespace BordeauxRCServer
         }
 
         private static Random r = new Random();
+
         internal static string RandomString()
         {
             char[] str = new char[64];
