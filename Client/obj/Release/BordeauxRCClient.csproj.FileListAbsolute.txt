@@ -1,13 +1,9 @@
-C:\Users\Dylan\Git\BordeauxServer\Client\bin\Release\BordeauxRCClient.exe.config
-C:\Users\Dylan\Git\BordeauxServer\Client\bin\Release\BordeauxRCClient.exe
-C:\Users\Dylan\Git\BordeauxServer\Client\bin\Release\BordeauxRCClient.pdb
-C:\Users\Dylan\Git\BordeauxServer\Client\obj\Release\BordeauxRCClient.csprojResolveAssemblyReference.cache
+C:\Users\Dylan\Git\BordeauxServer\bin\Release\Client\BordeauxRCClient.exe.config
+C:\Users\Dylan\Git\BordeauxServer\bin\Release\Client\BordeauxRCClient.exe
+C:\Users\Dylan\Git\BordeauxServer\bin\Release\Client\BordeauxRCClient.pdb
 C:\Users\Dylan\Git\BordeauxServer\Client\obj\Release\BordeauxRCClient.Form1.resources
 C:\Users\Dylan\Git\BordeauxServer\Client\obj\Release\BordeauxRCClient.LoginForm.resources
 C:\Users\Dylan\Git\BordeauxServer\Client\obj\Release\BordeauxRCClient.Properties.Resources.resources
 C:\Users\Dylan\Git\BordeauxServer\Client\obj\Release\BordeauxRCClient.csproj.GenerateResource.Cache
 C:\Users\Dylan\Git\BordeauxServer\Client\obj\Release\BordeauxRCClient.exe
 C:\Users\Dylan\Git\BordeauxServer\Client\obj\Release\BordeauxRCClient.pdb
-C:\Users\Dylan\Git\BordeauxServer\bin\Release\Client\BordeauxRCClient.exe.config
-C:\Users\Dylan\Git\BordeauxServer\bin\Release\Client\BordeauxRCClient.exe
-C:\Users\Dylan\Git\BordeauxServer\bin\Release\Client\BordeauxRCClient.pdb
