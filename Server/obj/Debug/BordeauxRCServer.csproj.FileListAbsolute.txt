@@ -16,3 +16,9 @@ C:\Users\Dylan\Git\BordeauxServer\Server\obj\Debug\BordeauxRCServer.pdb
 C:\Users\Dylan\Git\BordeauxServer\Server\bin\Debug\BordeauxRCServer.exe
 C:\Users\Dylan\Git\BordeauxServer\Server\bin\Debug\BordeauxRCServer.pdb
 C:\Users\Dylan\Git\BordeauxServer\Server\obj\Debug\BordeauxRCServer.csprojResolveAssemblyReference.cache
+C:\Users\Dylan\Git\BordeauxServer\bin\Debug\BordeauxRCServer.exe.config
+C:\Users\Dylan\Git\BordeauxServer\bin\Debug\BordeauxRCServer.exe
+C:\Users\Dylan\Git\BordeauxServer\bin\Debug\BordeauxRCServer.pdb
+C:\Users\Dylan\Git\BordeauxServer\bin\Debug\Server\BordeauxRCServer.exe.config
+C:\Users\Dylan\Git\BordeauxServer\bin\Debug\Server\BordeauxRCServer.exe
+C:\Users\Dylan\Git\BordeauxServer\bin\Debug\Server\BordeauxRCServer.pdb

@@ -1,4 +1,0 @@
-Test
-@bb4b917141fbab2e4d5756459f4edf358d590233fb9492d885a725a9273a22b39aff4552fed68e1a49423821356dd8d1c37a17d01e2a74646eb4e3e500bcbebf
-C:\Users\Dylan\Downloads\server\forge.jar
--Xmx4G -Xms4G

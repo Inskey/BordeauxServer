@@ -26,3 +26,9 @@ C:\Users\Dylan\Git\BordeauxServer\Client\obj\Debug\BordeauxRCClient.Properties.R
 C:\Users\Dylan\Git\BordeauxServer\Client\obj\Debug\BordeauxRCClient.csproj.GenerateResource.Cache
 C:\Users\Dylan\Git\BordeauxServer\Client\bin\Debug\BordeauxRCClient.exe
 C:\Users\Dylan\Git\BordeauxServer\Client\bin\Debug\BordeauxRCClient.pdb
+C:\Users\Dylan\Git\BordeauxServer\bin\Debug\BordeauxRCClient.exe.config
+C:\Users\Dylan\Git\BordeauxServer\bin\Debug\BordeauxRCClient.exe
+C:\Users\Dylan\Git\BordeauxServer\bin\Debug\BordeauxRCClient.pdb
+C:\Users\Dylan\Git\BordeauxServer\bin\Debug\Client\BordeauxRCClient.exe.config
+C:\Users\Dylan\Git\BordeauxServer\bin\Debug\Client\BordeauxRCClient.exe
+C:\Users\Dylan\Git\BordeauxServer\bin\Debug\Client\BordeauxRCClient.pdb
