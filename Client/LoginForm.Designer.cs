@@ -28,37 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox_Host = new System.Windows.Forms.TextBox();
+            this.textBox_User = new System.Windows.Forms.TextBox();
+            this.textBox_Pass = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button_Cancel = new System.Windows.Forms.Button();
+            this.button_Connect = new System.Windows.Forms.Button();
+            this.checkBox_RememberMe = new System.Windows.Forms.CheckBox();
+            this.checkBox_RememberPass = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(62, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(278, 20);
-            this.textBox1.TabIndex = 0;
+            this.textBox_Host.Location = new System.Drawing.Point(62, 12);
+            this.textBox_Host.Name = "textBox1";
+            this.textBox_Host.Size = new System.Drawing.Size(278, 20);
+            this.textBox_Host.TabIndex = 0;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(62, 38);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(278, 20);
-            this.textBox2.TabIndex = 1;
+            this.textBox_User.Location = new System.Drawing.Point(62, 38);
+            this.textBox_User.Name = "textBox2";
+            this.textBox_User.Size = new System.Drawing.Size(278, 20);
+            this.textBox_User.TabIndex = 1;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(62, 64);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(278, 20);
-            this.textBox3.TabIndex = 2;
+            this.textBox_Pass.Location = new System.Drawing.Point(62, 64);
+            this.textBox_Pass.Name = "textBox3";
+            this.textBox_Pass.PasswordChar = '●';
+            this.textBox_Pass.Size = new System.Drawing.Size(278, 20);
+            this.textBox_Pass.TabIndex = 2;
             // 
             // label1
             // 
@@ -89,49 +91,60 @@
             // 
             // button1
             // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(12, 95);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button_Cancel.Location = new System.Drawing.Point(12, 95);
+            this.button_Cancel.Name = "button1";
+            this.button_Cancel.Size = new System.Drawing.Size(75, 23);
+            this.button_Cancel.TabIndex = 6;
+            this.button_Cancel.Text = "Cancel";
+            this.button_Cancel.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(265, 95);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Connect";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button_Connect.Location = new System.Drawing.Point(265, 95);
+            this.button_Connect.Name = "button2";
+            this.button_Connect.Size = new System.Drawing.Size(75, 23);
+            this.button_Connect.TabIndex = 7;
+            this.button_Connect.Text = "Connect";
+            this.button_Connect.UseVisualStyleBackColor = true;
+            this.button_Connect.Click += new System.EventHandler(this.button2_Click);
             // 
             // checkBox1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(112, 99);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(129, 17);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "Remember My Details";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox_RememberMe.AutoSize = true;
+            this.checkBox_RememberMe.Location = new System.Drawing.Point(103, 90);
+            this.checkBox_RememberMe.Name = "checkBox1";
+            this.checkBox_RememberMe.Size = new System.Drawing.Size(129, 17);
+            this.checkBox_RememberMe.TabIndex = 8;
+            this.checkBox_RememberMe.Text = "Remember My Details";
+            this.checkBox_RememberMe.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox_RememberPass.AutoSize = true;
+            this.checkBox_RememberPass.Location = new System.Drawing.Point(103, 109);
+            this.checkBox_RememberPass.Name = "checkBox2";
+            this.checkBox_RememberPass.Size = new System.Drawing.Size(153, 17);
+            this.checkBox_RememberPass.TabIndex = 9;
+            this.checkBox_RememberPass.Text = "Remember Pass (Insecure)";
+            this.checkBox_RememberPass.UseVisualStyleBackColor = true;
             // 
             // LoginForm
             // 
-            this.AcceptButton = this.button2;
+            this.AcceptButton = this.button_Connect;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(352, 130);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.checkBox_RememberPass);
+            this.Controls.Add(this.checkBox_RememberMe);
+            this.Controls.Add(this.button_Connect);
+            this.Controls.Add(this.button_Cancel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_Pass);
+            this.Controls.Add(this.textBox_User);
+            this.Controls.Add(this.textBox_Host);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -144,14 +157,15 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox_Host;
+        private System.Windows.Forms.TextBox textBox_User;
+        private System.Windows.Forms.TextBox textBox_Pass;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button_Cancel;
+        private System.Windows.Forms.Button button_Connect;
+        private System.Windows.Forms.CheckBox checkBox_RememberMe;
+        private System.Windows.Forms.CheckBox checkBox_RememberPass;
     }
 }

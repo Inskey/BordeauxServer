@@ -72,7 +72,7 @@ namespace BordeauxRCClient.Core
             }
             else
             {
-                form.dispQueue.Add("It broke nigga");
+                form.dispQueue.Add("Failed to connect to server, resetting connection...");
                 form.Disconnect();
             }
         }
@@ -135,7 +135,29 @@ namespace BordeauxRCClient.Core
         private void OnDataReceived(IAsyncResult res)
         {
             //form.dispQueue.Add("Got " + Encoding.UTF8.GetString(data));
-            if (inString)
+            int irx = 0;
+            try
+            {
+                irx = sckt.EndReceive(res);
+            }
+            catch (SocketException)
+            {
+                form.dispQueue.Add("Encountered socket exception while receiving data. Disconnecting.");
+                return;
+            }
+            catch (ArgumentException)
+            {
+                return;
+            }
+            catch (ObjectDisposedException)
+            {
+                return;
+            }
+            if (irx == 0)
+            {
+                return;
+            }
+            else if (inString)
             {
                 msgLength--;
                 conjMsg += Encoding.UTF8.GetString(data);
@@ -186,33 +208,23 @@ namespace BordeauxRCClient.Core
                     lengthNums += Encoding.UTF8.GetString(data);
                 }
             }
-            try
-            {
-                sckt.EndReceive(res);
-            }
-            catch (SocketException)
-            {
-                form.dispQueue.Add("Encountered socket exception while receiving data. Disconnecting.");
-                return;
-            }
-            catch (ArgumentException)
-            {
-                return;
-            }
-            catch (ObjectDisposedException)
-            {
-                return;
-            }
             Listen();
         }
 
         public void Disconnect()
         {
             connected = false;
-            sckt.Shutdown(SocketShutdown.Both);
-            sckt.Disconnect(false);
-            sckt.Close();
-            sckt.Dispose();
+            try
+            {
+                sckt.Shutdown(SocketShutdown.Both);
+                sckt.Disconnect(false);
+                sckt.Close();
+                sckt.Dispose();
+            }
+            catch (SocketException)
+            {
+                return;
+            }
             form.dispQueue.Add("Disconnected from server.");
         }
     }
