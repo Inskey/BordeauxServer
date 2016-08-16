@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using System.Net.Sockets;
-using System.Net;
 
 namespace BordeauxRCClient.Core
 {
-    class Connection
+    internal class Connection
     {
         private MainForm form;
 
@@ -27,6 +27,7 @@ namespace BordeauxRCClient.Core
 
         private bool waitSalt = true;
         private string salt;
+
         public void Connect(string host, string user, string pass)
         {
             IPAddress[] hostIPs = Dns.GetHostAddresses(host);
@@ -40,7 +41,7 @@ namespace BordeauxRCClient.Core
                     break;
                 }
             }
-            if (! found)
+            if (!found)
             {
                 form.dispQueue.Add("Could not find IPv4 address for " + host);
                 return;
@@ -48,7 +49,6 @@ namespace BordeauxRCClient.Core
             try
             {
                 sckt.Connect(hostIP, 54011);
-
             }
             catch (SocketException se)
             {
@@ -111,7 +111,7 @@ namespace BordeauxRCClient.Core
 
         private void Listen()
         {
-            if (! connected)
+            if (!connected)
             {
                 return;
             }
@@ -192,7 +192,7 @@ namespace BordeauxRCClient.Core
                 }
                 else if (Encoding.UTF8.GetString(data) == "@")
                 {
-                    if (! int.TryParse(lengthNums, out msgLength))
+                    if (!int.TryParse(lengthNums, out msgLength))
                     {
                         form.dispQueue.Add("Server sent bad packet, disconnecting.");
                         form.Disconnect();

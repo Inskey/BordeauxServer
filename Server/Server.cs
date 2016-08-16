@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Threading;
-using System.IO;
 using System.Diagnostics;
-using System.Text.RegularExpressions;
+using System.IO;
+using System.Threading;
 
 namespace BordeauxRCServer
 {
@@ -32,7 +31,7 @@ namespace BordeauxRCServer
             pass = passArg;
             path = pathArg.Replace('\\', '/');
             args = JVMArgs;
-            if(! File.Exists(path))
+            if (!File.Exists(path))
             {
                 Program.MainDisplay("[" + name + "] Error: Failed to Load: Path to jar \"" + path + "\" does not exist.");
                 failedToLoad = true;
@@ -43,7 +42,7 @@ namespace BordeauxRCServer
         {
             while (running)
             {
-                if (cmds.Count > 0 && (! stopping))
+                if (cmds.Count > 0 && (!stopping))
                 {
                     STDIN.WriteLine(cmds[0]);
                     cmds.RemoveAt(0);
@@ -64,7 +63,7 @@ namespace BordeauxRCServer
 
         internal void Start(object starter)
         {
-            if(running)
+            if (running)
             {
                 DataSend("Server already running.");
                 return;
@@ -107,7 +106,7 @@ namespace BordeauxRCServer
             running = true;
             new Thread(new ThreadStart(CommandLoop)).Start();
             new Thread(new ThreadStart(WaitForServerExit)).Start();
-            Program.MainDisplay("[" + name + "] Started by " + ((starter.GetType() == typeof(MainClass)) ? "administrator" : "client #" + ((Connection) starter).ID.ToString() + " @" + ((Connection) starter).GetIP().ToString()));
+            Program.MainDisplay("[" + name + "] Started by " + ((starter.GetType() == typeof(MainClass)) ? "administrator" : "client #" + ((Connection)starter).ID.ToString() + " @" + ((Connection)starter).GetIP().ToString()));
         }
 
         public string GetProcSpec()

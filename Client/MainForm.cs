@@ -68,7 +68,7 @@ namespace BordeauxRCClient
             {
                 oldCommands.RemoveAt(24);
             }
-            if (! (oldCommands.Count > 0 && oldCommands[0] == textBox2.Text))
+            if (!(oldCommands.Count > 0 && oldCommands[0] == textBox2.Text))
             {
                 oldCommands.Insert(0, textBox2.Text);
             }
@@ -101,6 +101,7 @@ namespace BordeauxRCClient
                                 }
                                 con.Connect(cmdParts[1], cmdParts[2], cmdParts[3]);
                                 break;
+
                             case "forcedisconnect":
                                 if (con.connected)
                                 {
@@ -111,6 +112,7 @@ namespace BordeauxRCClient
                                     dispQueue.Add("[forcedisconnect] Error: Not connected to a server.");
                                 }
                                 break;
+
                             case "help":
                                 dispQueue.Add("-=Command Help=-\r\n" +
                                     "login <IP> <username> <passwd>: Try connecting and logging in to a server.\r\n" +
@@ -118,9 +120,11 @@ namespace BordeauxRCClient
                                     "version: Display version.\r\n" +
                                     "exit: Exit the program safely.");
                                 break;
+
                             case "version":
                                 dispQueue.Add("Client version: " + Program.version);
                                 break;
+
                             case "exit":
                                 running = false;
                                 if (con.connected)
@@ -131,6 +135,7 @@ namespace BordeauxRCClient
                                 }
                                 Environment.Exit(0);
                                 return;
+
                             default:
                                 dispQueue.Add("Error: Unknown command \"" + cmdParts[0] + "\". For a list of commands, use ::help.");
                                 break;
@@ -217,7 +222,6 @@ namespace BordeauxRCClient
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-
         }
 
         private void connectToolStripMenuItem_Click(object sender, EventArgs e)

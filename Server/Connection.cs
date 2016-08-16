@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
+using System.Threading;
 
 namespace BordeauxRCServer
 {
@@ -27,6 +27,7 @@ namespace BordeauxRCServer
         private List<string> sendQueue = new List<string>();
 
         private IPAddress IP;
+
         internal IPAddress GetIP()
         {
             return IP;
@@ -40,7 +41,7 @@ namespace BordeauxRCServer
         {
             main = m;
             sckt = scktArg;
-            IP = ((IPEndPoint) sckt.RemoteEndPoint).Address;
+            IP = ((IPEndPoint)sckt.RemoteEndPoint).Address;
             ID = ID_;
             loginWaiter = new Thread(new ThreadStart(WaitForLogin));
             loginWaiter.Start();
@@ -53,7 +54,7 @@ namespace BordeauxRCServer
         private void WaitForLogin()
         {
             Thread.Sleep(10000);
-            if(! verified)
+            if (!verified)
             {
                 Program.MainDisplay("Client #" + ID.ToString() + " @" + IP.ToString() + " failed to send login info. Disconnecting.");
                 ClientDisconnected(this, new Net.ConnectionArgs(this));
@@ -64,7 +65,7 @@ namespace BordeauxRCServer
 
         private void Listen()
         {
-            if (! connected)
+            if (!connected)
             {
                 return;
             }
@@ -110,7 +111,7 @@ namespace BordeauxRCServer
             {
                 if (Encoding.UTF8.GetString(data) == "@")
                 {
-                    if (! int.TryParse(lengthNums, out msgLength))
+                    if (!int.TryParse(lengthNums, out msgLength))
                     {
                         SendMessage("Error: Invalid packet sent.");
                         Program.MainDisplay("Client #" + ID.ToString() + " @" + GetIP().ToString() + " sent invalid packet. Diconnecting.");
@@ -159,7 +160,6 @@ namespace BordeauxRCServer
                     }
                     try
                     {
-                        
                         sckt.Send(Encoding.UTF8.GetBytes(sendQueue[0].Length.ToString() + "@" + sendQueue[0]));
                     }
                     catch (SocketException se)
@@ -171,7 +171,7 @@ namespace BordeauxRCServer
                 Thread.Sleep((sendQueue.Count > 10) ? 25 : 50);
             }
         }
-        
+
         internal void Disconnect()
         {
             connected = false;
@@ -182,13 +182,14 @@ namespace BordeauxRCServer
                 sckt.Close();
             }
             catch (SocketException) { }
-            if (! (loginWaiter.ThreadState == ThreadState.Stopped))
+            if (!(loginWaiter.ThreadState == ThreadState.Stopped))
             {
                 loginWaiter.Abort();
             }
         }
 
         internal event Net.DataReceivedHandler DataReceived;
+
         internal event Net.ClientDisconnectedHandler ClientDisconnected;
     }
 }

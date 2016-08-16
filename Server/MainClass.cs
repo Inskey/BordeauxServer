@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using System.Threading;
 
 namespace BordeauxRCServer
@@ -116,7 +116,7 @@ namespace BordeauxRCServer
                             {
                                 Program.MainDisplay("Loading configuration values...");
                                 List<string> propsRaw = new List<string>(File.ReadAllLines(Directory.GetCurrentDirectory() + "/BordeauxRCServer/config.properties"));
-                                Dictionary<string, string> props = new Dictionary<string,string>();
+                                Dictionary<string, string> props = new Dictionary<string, string>();
                                 foreach (string prop in propsRaw)
                                 {
                                     if (prop[0] == '#' || String.IsNullOrEmpty(prop)) { continue; }
@@ -204,7 +204,7 @@ namespace BordeauxRCServer
                     Directory.CreateDirectory(Directory.GetCurrentDirectory() + "/BordeauxRCServer");
                     Console.WriteLine("Done. Reloading...");
                     continue;
-                } 
+                }
             }
             BeginClientAccept();
         }
@@ -217,7 +217,7 @@ namespace BordeauxRCServer
                 sckt.Bind(new IPEndPoint(IPAddress.Any, 54011));
                 sckt.Listen(4);
                 sckt.BeginAccept(new AsyncCallback(AcceptLoop), null);
-                Program.MainDisplay("Socket successfully created; listening on " + ((IPEndPoint) sckt.LocalEndPoint).Address.ToString() + ":" + ((IPEndPoint) sckt.LocalEndPoint).Port.ToString() + ".");
+                Program.MainDisplay("Socket successfully created; listening on " + ((IPEndPoint)sckt.LocalEndPoint).Address.ToString() + ":" + ((IPEndPoint)sckt.LocalEndPoint).Port.ToString() + ".");
             }
             catch (SocketException se)
             {
@@ -243,7 +243,7 @@ namespace BordeauxRCServer
             {
                 Socket s = sckt.EndAccept(result);
                 if (stopped) { return; }
-                IPAddress ip = ((IPEndPoint) s.RemoteEndPoint).Address;
+                IPAddress ip = ((IPEndPoint)s.RemoteEndPoint).Address;
                 if (connectionThrottle.Contains(ip))
                 {
                     s.Send(Encoding.UTF8.GetBytes(loginTooFastMessage.Length.ToString() + "@" + loginTooFastMessage));
@@ -256,7 +256,7 @@ namespace BordeauxRCServer
                 Thread conTimer = new Thread(() => connectionTimer(ip));
                 conTimer.Start();
                 bool inWhitelist;
-                if (! doWhitelist)
+                if (!doWhitelist)
                 {
                     inWhitelist = true;
                 }
@@ -305,7 +305,7 @@ namespace BordeauxRCServer
             }
             catch (Exception ex)
             {
-                if (! stopped)
+                if (!stopped)
                 {
                     Program.MainDisplay(ex.Message);
                 }
@@ -334,6 +334,7 @@ namespace BordeauxRCServer
                 {
                     case "":
                         break;
+
                     case "fdip":
                     case "forcedisconnectip":
                         if (inpParts.Length < 2)
@@ -360,6 +361,7 @@ namespace BordeauxRCServer
                             }
                         }
                         break;
+
                     case "fd":
                     case "forcedisconnect":
                         if (inpParts.Length < 2)
@@ -386,6 +388,7 @@ namespace BordeauxRCServer
                             }
                         }
                         break;
+
                     case "lc":
                     case "listconnections":
                         Program.MainDisplay("Connections open: " + connections.Count.ToString());
@@ -401,6 +404,7 @@ namespace BordeauxRCServer
                             }
                         }
                         break;
+
                     case "ls":
                     case "listservers":
                         int scount = 0;
@@ -411,6 +415,7 @@ namespace BordeauxRCServer
                         }
                         Program.MainDisplay("Listed " + scount.ToString() + " servers.");
                         break;
+
                     case "st":
                     case "start":
                         if (inpParts.Length < 2)
@@ -429,11 +434,12 @@ namespace BordeauxRCServer
                                 break;
                             }
                         }
-                        if (! found)
+                        if (!found)
                         {
                             Program.MainDisplay("Error: Server \"" + inpParts[1] + "\" not found.");
                         }
                         break;
+
                     case "stop":
                         if (inpParts.Length < 2)
                         {
@@ -441,9 +447,9 @@ namespace BordeauxRCServer
                             break;
                         }
                         int wait = 0;
-                        if (inpParts.Length > 2) 
-                        { 
-                            if (! int.TryParse(inpParts[2], out wait))
+                        if (inpParts.Length > 2)
+                        {
+                            if (!int.TryParse(inpParts[2], out wait))
                             {
                                 Program.MainDisplay("Error: Time argument not an integer. Using default.");
                                 wait = 20;
@@ -459,11 +465,12 @@ namespace BordeauxRCServer
                                 found = true;
                             }
                         }
-                        if (! found)
+                        if (!found)
                         {
                             Program.MainDisplay("Error: Server \"" + inpParts[1] + "\" not found.");
                         }
                         break;
+
                     case "dc":
                     case "dispatchcommand":
                         if (inpParts.Length < 3)
@@ -515,6 +522,7 @@ namespace BordeauxRCServer
                             Program.MainDisplay("Failed to find server with name \"" + inpParts[1] + "\"");
                         }
                         break;
+
                     case "bc":
                     case "broadcast":
                         if (inpParts.Length < 2)
@@ -525,7 +533,7 @@ namespace BordeauxRCServer
                         string msg = "";
                         for (int c = 1; c < inpParts.Length; c++)
                         {
-                            msg += inpParts[c] + ( (inpParts.Length == c + 1) ? "" : " " );
+                            msg += inpParts[c] + ((inpParts.Length == c + 1) ? "" : " ");
                         }
                         foreach (Connection con in connections)
                         {
@@ -633,7 +641,7 @@ namespace BordeauxRCServer
                                     break;
                                 }
                             }
-                            if (! found_)
+                            if (!found_)
                             {
                                 Program.MainDisplay("Could not find IP " + inpParts[2] + " in whitelist.");
                             }
@@ -653,6 +661,7 @@ namespace BordeauxRCServer
                         }
                         Program.MainDisplay("Error: Unknown argument \"" + inpParts[1] + "\".");
                         break;
+
                     case "help":
                         Program.MainDisplay("-=Command Help=-\n" +
                             "1. forcedisconnect (fd) <integer ID>: Force close a connection by Connection ID.\n" +
@@ -672,13 +681,15 @@ namespace BordeauxRCServer
                             "11. exit: Safely exit the program.\n" +
                             "12. hardexit (he): Forcefully close the program. (servers will be killed and connections unexpectedly dropped)");
                         break;
+
                     case "version":
                         Program.MainDisplay("Server version: " + Program.version);
                         break;
+
                     case "exit":
                         stopped = true;
                         List<Connection> conns = new List<Connection>(connections);
-                        foreach(Connection con in conns)
+                        foreach (Connection con in conns)
                         {
                             Program.MainDisplay("Disconnecting client #" + con.ID.ToString() + " @" + con.GetIP().ToString() + ".");
                             OnClientDisconnected(this, new Net.ConnectionArgs(con));
@@ -686,7 +697,7 @@ namespace BordeauxRCServer
                         Program.MainDisplayNoLine("Closing socket... ");
                         sckt.Close();
                         Console.WriteLine("closed.");
-                        foreach(Server srvr in servers)
+                        foreach (Server srvr in servers)
                         {
                             if (srvr.SoftStop(20))
                             {
@@ -702,18 +713,19 @@ namespace BordeauxRCServer
                         Console.ReadKey();
                         Environment.Exit(0);
                         return;
+
                     case "he":
                     case "hardexit":
                         stopped = true;
                         Program.MainDisplayNoLine("Closing socket... ");
                         sckt.Close();
                         Console.WriteLine("closed.");
-                        foreach(Connection con in connections)
+                        foreach (Connection con in connections)
                         {
                             Program.MainDisplay("Disconnecting client #" + con.ID.ToString() + " @" + con.GetIP().ToString() + ".");
                             OnClientDisconnected(this, new Net.ConnectionArgs(con));
                         }
-                        foreach(Server srvr in servers)
+                        foreach (Server srvr in servers)
                         {
                             if (srvr.ForceStop(this))
                             {
@@ -729,6 +741,7 @@ namespace BordeauxRCServer
                         Console.ReadKey();
                         Environment.Exit(0);
                         break;
+
                     default:
                         Program.MainDisplay("Error: Unknown command \"" + inpParts[0] + "\"");
                         break;
@@ -750,6 +763,7 @@ namespace BordeauxRCServer
                             args.Connection.SendMessage("Starting " + args.Connection.verifiedServer.name + "...");
                             args.Connection.verifiedServer.Start(args.Connection);
                             break;
+
                         case "kill":
                             if (args.Connection.verifiedServer.running)
                             {
@@ -761,12 +775,15 @@ namespace BordeauxRCServer
                                 args.Connection.SendMessage("Server is not currently running.");
                             }
                             break;
+
                         case "procspec":
                             args.Connection.SendMessage(args.Connection.verifiedServer.GetProcSpec());
                             break;
+
                         case "version":
                             args.Connection.SendMessage("Server version: " + Program.version);
                             break;
+
                         case "help":
                             args.Connection.SendMessage("-=Command Help=-\r\n" +
                                 "start: Start the jarfile for the server.\r\n" +
@@ -775,9 +792,11 @@ namespace BordeauxRCServer
                                 "version: Display the server-side software version.\r\n" +
                                 "disconnect: Safely close the connection.");
                             break;
+
                         case "disconnect":
                             OnClientDisconnected(args.Connection, new Net.ConnectionArgs(args.Connection));
                             break;
+
                         default:
                             args.Connection.SendMessage("Error: Command \"" + parts[0] + "\" not found.");
                             break;
@@ -797,7 +816,7 @@ namespace BordeauxRCServer
             }
             else
             {
-                if (! args.Connection.connected)
+                if (!args.Connection.connected)
                 {
                     return;
                 }
@@ -846,7 +865,7 @@ namespace BordeauxRCServer
                             found = true;
                         }
                     }
-                    if (! found)
+                    if (!found)
                     {
                         Program.MainDisplay("Client #" + args.Connection.ID.ToString() + " @" + args.Connection.GetIP().ToString() + " did not send valid username. Disconnecting.");
                         args.Connection.SendMessage("We could not find the login \"" + "\". Login denied.");
@@ -854,7 +873,7 @@ namespace BordeauxRCServer
                         OnClientDisconnected(this, args);
                     }
                 }
-            }   
+            }
         }
 
         internal void OnClientDisconnected(object sender, Net.ConnectionArgs args)
